@@ -1,0 +1,141 @@
+{
+  "name": "linguolink",
+  "displayName": "Linguolink",
+  "description": "An extension of Linguolink for developers",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.103.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "linguolink.translateText",
+        "title": "Translate Selected Text",
+        "category": "LinguoLink"
+      },
+      {
+        "command": "linguolink.translateComment",
+        "title": "Translate Comment",
+        "category": "LinguoLink"
+      },
+      {
+        "command": "linguolink.openTranslationPanel",
+        "title": "Open Translation Panel",
+        "category": "LinguoLink"
+      },
+      {
+        "command": "linguolink.configureApiKeys",
+        "title": "Configure API Keys",
+        "category": "LinguoLink"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "linguolink.translateText",
+          "when": "editorHasSelection",
+          "group": "linguolink"
+        },
+        {
+          "command": "linguolink.translateComment",
+          "when": "editorHasSelection",
+          "group": "linguolink"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "linguolink.translateText",
+          "when": "editorHasSelection"
+        },
+        {
+          "command": "linguolink.translateComment",
+          "when": "editorHasSelection"
+        },
+        {
+          "command": "linguolink.openTranslationPanel"
+        },
+        {
+          "command": "linguolink.configureApiKeys"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "LinguoLink",
+      "properties": {
+        "linguolink.defaultSourceLanguage": {
+          "type": "string",
+          "default": "auto",
+          "description": "Default source language for translation (auto-detect if 'auto')"
+        },
+        "linguolink.defaultTargetLanguage": {
+          "type": "string",
+          "default": "en",
+          "description": "Default target language for translation"
+        },
+        "linguolink.translationProvider": {
+          "type": "string",
+          "enum": ["google", "deepl", "azure"],
+          "default": "google",
+          "description": "Translation service provider"
+        },
+        "linguolink.googleTranslateApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Google Translate API key"
+        },
+        "linguolink.deeplApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "DeepL API key"
+        },
+        "linguolink.azureTranslatorKey": {
+          "type": "string",
+          "default": "",
+          "description": "Azure Translator API key"
+        },
+        "linguolink.azureTranslatorRegion": {
+          "type": "string",
+          "default": "",
+          "description": "Azure Translator region"
+        },
+        "linguolink.showTranslationInQuickPick": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show translation results in quick pick menu"
+        },
+        "linguolink.autoReplaceTranslation": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically replace selected text with translation"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "dependencies": {
+    "axios": "^1.6.2"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.103.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
+    "eslint": "^9.32.0",
+    "typescript": "^5.9.2",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
