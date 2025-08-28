@@ -1,71 +1,126 @@
-# linguolink README
+# 🌐 LinguoLink
 
-This is the README for your extension "linguolink". After writing up a brief description, we recommend including the following sections.
+A powerful VS Code extension that brings seamless translation capabilities directly to your development environment. Perfect for international developers, documentation translation, and multilingual codebases.
 
-## Features
+## ✨ Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- **Text Translation**: Translate selected text with multiple provider options
+- **Comment Translation**: Smart comment translation with automatic formatting
+- **Translation Panel**: Interactive webview for advanced translation workflows
+- **Multiple Providers**: Support for Google Translate, DeepL, and Azure Translator
+- **Language Auto-Detection**: Automatic source language detection
+- **Context Menu Integration**: Right-click to translate directly from the editor
+- **Configurable Settings**: Customize default languages and provider preferences
 
-For example if there is an image subfolder under your extension project workspace:
+### 🚀 Quick Actions
 
-\!\[feature X\]\(images/feature-x.png\)
+- **Translate Selected Text**: Select any text and use the command palette or context menu
+- **Translate Comments**: Extract and translate comment content with proper formatting
+- **Translation Panel**: Open a dedicated panel for complex translation tasks
+- **Auto-Replace**: Option to automatically replace selected text with translation
+- **Copy to Clipboard**: Quickly copy translations without replacing original text
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## 📋 Requirements
 
-## Requirements
+To use LinguoLink, you need API keys from one or more translation providers:
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- **Google Translate API**: [Get API Key](https://cloud.google.com/translate/docs/setup)
+- **DeepL API**: [Get API Key](https://www.deepl.com/pro-api)
+- **Azure Translator**: [Get API Key](https://azure.microsoft.com/en-us/services/cognitive-services/translator/)
 
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
+## ⚙️ Extension Settings
 
 This extension contributes the following settings:
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+### Translation Providers
+- `linguolink.translationProvider`: Choose your default translation provider (`google`, `deepl`, `azure`)
+- `linguolink.googleTranslateApiKey`: Your Google Translate API key
+- `linguolink.deeplApiKey`: Your DeepL API key
+- `linguolink.azureTranslatorKey`: Your Azure Translator API key
+- `linguolink.azureTranslatorRegion`: Your Azure Translator region
 
-## Known Issues
+### Language Settings
+- `linguolink.defaultSourceLanguage`: Default source language (`auto` for auto-detection)
+- `linguolink.defaultTargetLanguage`: Default target language (e.g., `en` for English)
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+### Behavior Settings
+- `linguolink.showTranslationInQuickPick`: Show translation results in quick pick menu (default: `true`)
+- `linguolink.autoReplaceTranslation`: Automatically replace selected text with translation (default: `false`)
 
-## Release Notes
+## 🛠️ Usage
 
-Users appreciate release notes as you update your extension.
+### 1. Configure API Keys
 
-### 1.0.0
+1. Open VS Code Settings (`Cmd/Ctrl + ,`)
+2. Search for "linguolink"
+3. Enter your API keys for your preferred translation provider(s)
 
-Initial release of ...
+### 2. Translate Text
 
-### 1.0.1
+1. Select any text in your editor
+2. Use one of these methods:
+   - Right-click and select "Translate Selected Text"
+   - Open Command Palette (`Cmd/Ctrl + Shift + P`) and run "LinguoLink: Translate Selected Text"
+   - Use the keyboard shortcut (if configured)
 
-Fixed issue #.
+### 3. Translation Panel
 
-### 1.1.0
+1. Open Command Palette (`Cmd/Ctrl + Shift + P`)
+2. Run "LinguoLink: Open Translation Panel"
+3. Use the interactive interface for advanced translation tasks
 
-Added features X, Y, and Z.
+### 4. Comment Translation
+
+1. Select a comment (including comment syntax)
+2. Right-click and select "Translate Comment"
+3. The translated comment will be added above the original
+
+## 🎯 Commands
+
+- `LinguoLink: Translate Selected Text` - Translate any selected text
+- `LinguoLink: Translate Comment` - Translate and format comments
+- `LinguoLink: Open Translation Panel` - Open the translation webview
+- `LinguoLink: Configure API Keys` - Quick access to settings and documentation
+
+## 🔧 Supported Languages
+
+The extension supports all languages available through your chosen translation provider:
+
+- **Google Translate**: 100+ languages
+- **DeepL**: 31+ languages with high accuracy
+- **Azure Translator**: 90+ languages
+
+## 🐛 Known Issues
+
+- Some translation providers may have rate limits
+- Very long texts might be truncated by API providers
+- Network connectivity required for all translation operations
+
+## 📝 Release Notes
+
+### 0.0.1
+
+Initial release of LinguoLink featuring:
+- Multi-provider translation support
+- Interactive translation panel
+- Context menu integration
+- Configurable settings
+- Comment translation with formatting
+
+## 🤝 Contributing
+
+We welcome contributions! Please feel free to submit issues and enhancement requests.
+
+## 📄 License
+
+This extension is released under the MIT License.
+
+## 🔗 Links
+
+- [GitHub Repository](https://github.com/gokh4nozturk/app.lingulink)
+- [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=gokhanozturk.linguolink)
+- [Issue Tracker](https://github.com/gokh4nozturk/app.lingulink/issues)
 
 ---
 
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+**Enjoy seamless translation with LinguoLink!** 🌐✨
